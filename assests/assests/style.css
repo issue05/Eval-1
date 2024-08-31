@@ -1,0 +1,251 @@
+*{
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    font-family: "Google Sans Regular";
+    box-sizing: border-box;
+}
+.matemasie-regular {
+    font-family: "Matemasie", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+body{
+    background: #fefefe;
+}
+.navbar{
+    width: 100%;
+    height: 80px;
+    background: rgb(246, 246, 182);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 100px;
+
+
+}
+
+.nav-bar{
+    position: relative;
+    top: 1v;
+}
+
+
+.logo{
+    font-size: 28px;
+    font-weight: bold;
+    
+    color: rgba(29, 27, 29, 0.933);
+}
+.hamburger{
+    display: none;
+}
+.nav-bar ul{
+    display: flex;
+}
+
+.nav-bar ul li a{
+    display: block;
+    color: rgba(29, 27, 29, 0.933);;
+    font-size: 20px;
+    padding: 10px 25px;
+    border-radius: 50px;
+    transition: 0.2s;
+    margin: 0 5px;
+}
+.nav-bar ul li a:hover{
+    color: #e288b4e0;
+    background: rgba(29, 27, 29, 0.933);;
+
+}
+.nav-bar ul li a.active{
+    color:#e288b4e0;
+    background:rgba(29, 27, 29, 0.933);;
+
+
+}
+@media only screen and (max-width: 1320px){
+    .navbar{
+        padding: 0 50px;
+    }
+
+}
+@media only screen and (max-width: 1100px){
+    .navbar{
+        padding: 0 30px;
+    }
+    
+}
+@media only screen and (max-width: 900px){
+    .hamburger{
+        display: block;
+        cursor: pointer;
+    }
+    .hamburger .line{
+        width: 30px;
+        height: 3px;
+        background: #fefefe;
+        margin: 6px 0;
+    }
+    .nav-bar{
+        height: 450px;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background: #e288b4e0;
+        transition: 0.2s;
+        overflow: hidden;
+    }
+    .nav-bar ul{
+        display: block;
+        width: fit-content;
+        margin: 80px auto 0 auto;
+        text-align: center;
+        transition: 0.5s;
+        opacity: 0;
+    }
+    .nav-bar ul li a{
+        margin-bottom: 12px;
+        color: red;
+    }
+
+    
+    
+}
+
+.container {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    
+    margin: 0; /* Ensure no additional margins affecting layout */
+    border-radius: 50px;
+}
+
+.cards-container {
+    display: flex;
+    gap: 30px;
+}
+
+.card-main {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
+    width: 300px;
+    box-sizing: border-box;
+    transition: transform 0.3s, box-shadow 0.3s;
+    text-align: center;
+}
+
+
+.card-main img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.card-main h2 {
+    margin-top: 10px;
+    font-size: 24px;
+    color: #9370DB;
+}
+
+.card-main:hover {
+    transform: scale(1.05);
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+}
+
+
+.full-background {
+    position: absolute;
+    width: 97vw; 
+    height: 100vh;
+    background-image: url('http://s3.amazonaws.com/spoonflower/public/design_thumbnails/0106/2654/rrrchev_butter_shop_preview.png');  
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat; /* Ensure the image does not repeat */
+    z-index: -1; /* Ensure the background is behind the content */
+    margin-top: 2vh;
+    margin-right: 2vw;
+    margin-left: 2vw;
+}
+
+
+
+
+
+.services-section {
+    font-family: Arial, sans-serif;
+    background-color: #FDD34B;
+    color: #0a0705;
+    text-align: center;
+    padding: 50px;
+    margin-left: 1vw;
+    margin-right: 1vw;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    border-radius: 20px;
+    
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: bold;
+    margin-bottom: 50px;
+    color: #F07143;
+}
+
+.services {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.service {
+    text-align: center;
+    width: 200px;
+}
+
+.image-wrapper {
+    background-color: #FFFFFF; /* White background for the circle */
+    padding: 20px; /* Increase padding to make the circle larger */
+    border-radius: 50%; /* Make the white background round */
+    margin-bottom: 15px;
+    display: inline-block;
+}
+
+.service img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%; /* Make the image round */
+}
+
+.service-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #F07143; /* Black text color */
+    margin-bottom: 10px;
+}
+
+.service-description {
+    font-size: 16px;
+    color: #000000; /* Black text color */
+}
+
+
+
