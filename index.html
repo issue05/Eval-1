@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FurrEver Homes</title>
-    <link rel="stylesheet" href="/assests/style.css">
+    <link rel="stylesheet" href="assests/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Matemasie&display=swap" rel="stylesheet">
@@ -84,6 +84,50 @@
                     </div>
                     <div class="service-title">Pet Adoption</div>
                     <div class="service-description">Find a new friend and give a pet a forever home!</div>
+                    <input type="checkbox" id="toggle-adoption" class="form-toggle-checkbox">
+                    <label for="toggle-adoption" class="form-toggle-btn">Adopt a Pet</label>
+                    <div id="adoption-form" class="hidden-form">
+                        <form>
+                        <h3>Adopt a Pet</h3>
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required>
+                
+                        <label for="address">Address:</label>
+                        <input type="text" id="address" name="address" required>
+                
+                        <label for="contact">Contact Number:</label>
+                        <input type="tel" id="contact" name="contact" required>
+                
+                        <label for="animal">Which animal would you like to adopt?</label>
+                        <input type="text" id="animal" name="animal" required>
+                        <h3>Choose Your Pet</h3>
+                        <div style="display: inline-block;">
+                            <label style="display: inline-block; margin-right: 10px;">
+                                <input type="checkbox" name="DOGS">
+                                DOGS
+                            </label>
+                            <label style="display: inline-block; margin-right: 10px;">
+                                <input type="checkbox" name="CATS">
+                                CATS
+                            </label>
+                            <label style="display: inline-block; margin-right: 10px;">
+                                <input type="checkbox" name="OTHERS">
+                                OTHERS
+                            </label>
+                        </div>
+                        
+                        
+
+                        <label>
+                            <input type="radio" name="terms-adopt" required>
+                            I agree to the terms and conditions.
+                        </label>
+
+                        
+                
+                        <input type="submit" value="Submit">
+                    </form>
+                </div>
                 </div>
         
                 <div class="service">
@@ -92,6 +136,29 @@
                     </div>
                     <div class="service-title">Connect with NGOs</div>
                     <div class="service-description">Partner with local NGOs to support animal welfare.</div>
+                    <input type="checkbox" id="toggle-ngo" class="form-toggle-checkbox">
+                    <label for="toggle-ngo" class="form-toggle-btn">Connect with NGOs</label>
+                    <div class="hidden-form" id="ngo-form">
+                        <form>
+                            <h3>Connect with NGOs</h3>
+                            <label for="name-ngo">Name:</label>
+                            <input type="text" id="name-ngo" name="name" required>
+                
+                            <label for="address-ngo">Address:</label>
+                            <input type="text" id="address-ngo" name="address" required>
+                
+                            <label for="contact-ngo">Contact Number:</label>
+                            <input type="tel" id="contact-ngo" name="contact" required>
+                
+                            <label for="found">Where have you found the animal?</label>
+                            <input type="text" id="found" name="found" required>
+                
+                            <label for="animal-condition">Which NGO you want to associate with?</label>
+                            <input type="text" id="animal-condition" name="animal-condition" required>
+                
+                            <input type="submit" value="Submit">
+                        </form>
+                    </div>
                 </div>
         
                 <div class="service">
@@ -100,6 +167,26 @@
                     </div>
                     <div class="service-title">Medical Care for Pets</div>
                     <div class="service-description">Access top-quality medical care for your pets.</div>
+                    <input type="checkbox" id="toggle-medical" class="form-toggle-checkbox">
+                    <label for="toggle-medical" class="form-toggle-btn">Request Medical Care</label>
+                    <div class="hidden-form" id="medical-form">
+                        <form>
+                            <h3>Request Medical Care</h3>
+                            <label for="name-medical">Name:</label>
+                            <input type="text" id="name-medical" name="name" required>
+                
+                            <label for="address-medical">Address:</label>
+                            <input type="text" id="address-medical" name="address" required>
+                
+                            <label for="contact-medical">Contact Number:</label>
+                            <input type="tel" id="contact-medical" name="contact" required>
+                
+                            <label for="animal-condition-medical">Describe the animal's medical condition:</label>
+                            <textarea id="animal-condition-medical" name="animal-condition" required></textarea>
+                
+                            <input type="submit" value="Submit">
+                        </form>
+                    
                 </div>
             </div>
         
