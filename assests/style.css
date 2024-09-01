@@ -143,13 +143,10 @@ body{
 }
 
 .card-main {
-    background-color: #fff;
-    padding: 30px;
-    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.9); /* Slightly transparent background */
+    border-radius: 10px;
+    padding: 20px;
     box-shadow: 0px 4px 8px rgba(0,0,0,0.1);
-    width: 300px;
-    box-sizing: border-box;
-    transition: transform 0.3s, box-shadow 0.3s;
     text-align: center;
 }
 
@@ -173,16 +170,22 @@ body{
 
 .full-background {
     position: absolute;
-    width: 97vw; 
-    height: 100vh;
-    background-image: url('http://s3.amazonaws.com/spoonflower/public/design_thumbnails/0106/2654/rrrchev_butter_shop_preview.png');  
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('http://s3.amazonaws.com/spoonflower/public/design_thumbnails/0106/2654/rrrchev_butter_shop_preview.png') no-repeat center center;
     background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat; /* Ensure the image does not repeat */
-    z-index: -1; /* Ensure the background is behind the content */
-    margin-top: 2vh;
-    margin-right: 2vw;
-    margin-left: 2vw;
+    z-index: -1;
+}
+.container-fluid {
+    position: relative;
+    padding: 60px 30px;
+}
+
+.content-container {
+    position: relative;
+    z-index: 1;
 }
 
 
@@ -201,6 +204,11 @@ body{
     margin-bottom: 2vh;
     border-radius: 20px;
     
+}
+@media only screen and (max-width: 900px){
+    .services-section {
+        padding: 0px;
+    }
 }
 
 h1 {
@@ -236,14 +244,14 @@ h1 {
 }
 
 .service-title {
-    font-size: 24px;
+    font-size: 1.5rem;
     font-weight: bold;
     color: #F07143; /* Black text color */
     margin-bottom: 10px;
 }
 
 .service-description {
-    font-size: 16px;
+    font-size: 1rem;
     color: #000000; /* Black text color */
 }
 
@@ -423,6 +431,11 @@ h1 {
     display: inline-block;
     
 }
+@media only screen and (max-width: 900px){
+    .form-toggle-btn {
+        margin-right: 5px;
+    }
+}
 
 .form-toggle-btn:hover {
     background-color: #f5e0d3;
@@ -432,6 +445,38 @@ h1 {
 .form-toggle-checkbox:checked + .form-toggle-btn + .hidden-form {
     display: block;
 }
+footer {
+    background-color: rgb(246, 246, 182);
+    padding: 1px;
+    text-align: center;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 10px;
+}
+
+.contact-info, .social-media {
+    width: 35%;
+}
+
+.social-media a {
+    display: block;
+    margin: 5px 0;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.social-media a:hover {
+    text-decoration: underline;
+}
+
+.footer-bottom {
+    border-top: 1px solid #b2d4f6;
+    padding-top: 10px;
+}
+
 
 
 
