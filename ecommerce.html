@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FurrEver Homes</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Raleway:wght@400;700&display=swap">
+    
+    <style>
+        body {
+            font-family: 'Raleway', sans-serif;
+            background-color: #FBF3DE;
+            margin: 0;
+            padding: 0;
+        }
+        h1, h2 {
+            font-family: 'Comic Neue', cursive;
+            color: #4a4e69;
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin-top: 50px;
+        }
+        p {
+            font-size: 18px;
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            margin: 0 auto;
+            max-width: 1200px;
+            text-align: center;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .col {
+            flex: 1 1 calc(33.333% - 20px);
+            margin-bottom: 20px;
+            margin-right: 10px;
+            margin-left: 10px;
+        }
+        .category-card {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: #facbb7; 
+            padding: 15px;
+        }
+        .category-card img {
+            border-radius: 10px 10px 0 0;
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+        }
+        .category-card-title {
+            color: #22223b;
+            font-size: 24px;
+            margin: 15px 0 10px;
+        }
+        .btn-primary {
+            background-color: #4a4e69;
+            border: none;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .btn-primary:hover {
+            background-color: #22223b;
+        }
+        .cart {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: #c86c3b43;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .cart-items {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+        .cart-items li {
+            margin-bottom: 10px;
+            font-size: 18px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .checkout-form {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #f2e9e4;
+            border-radius: 10px;
+        }
+        .checkout-form input, .checkout-form button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Welcome to FurrEver Homes Shop</h1>
+        <h2>Shop by Category</h2>
+        <div class="row">
+            <!-- Category Cards -->
+            <div class="col">
+                <div class="category-card">
+                    <img src="https://www.kibblesnbits.com/wp-content/uploads/2024/04/Kibblesn-Bits-Original-Beef-Chicken-Dry-Dog-Food-3.5LB-1024x1024.png" alt="Dog Food">
+                    <h5 class="category-card-title">Dog Food</h5>
+                    <p>Find the best food for your furry friend.</p>
+                    <button class="btn-primary" onclick="addToCart('Dog Food')">Add to Cart</button>
+                </div>
+            </div>
+            <div class="col">
+                <div class="category-card">
+                    <img src="https://m.media-amazon.com/images/I/61X4aEbAtzL._AC_UF1000,1000_QL80_.jpg" alt="Cat Food">
+                    <h5 class="category-card-title">Cat Food</h5>
+                    <p>Premium food for your feline companions.</p>
+                    <button class="btn-primary" onclick="addToCart('Cat Food')">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Cart Section -->
+        <div id="cart" class="cart">
+            <h3>Your Cart</h3>
+            <ul id="cart-items" class="cart-items"></ul>
+        </div>
+
+        <!-- Single Buy Now Button -->
+        <button class="btn-primary" onclick="showCheckoutForm()">Buy Now</button>
+
+        <!-- Checkout Form -->
+        <div id="checkout-form" class="checkout-form">
+            <form onsubmit="sendEmail(); resetCart(); return false;">
+                <h3>Checkout</h3>
+                <input type="text" id="name" placeholder="Name" required>
+                <input type="email" id="email" placeholder="Email" required>
+                <input type="text" id="shipping" placeholder="Shipping Address" required>
+                <button type="submit">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- EmailJS Integration -->
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script>
+        (function() { emailjs.init("c67qwmNGXl_fvhVYc"); })();
+
+        const cartItems = [];
+
+        function addToCart(item) {
+            cartItems.push(item);
+            displayCartItems();
+        }
+
+        function displayCartItems() {
+            const cartContainer = document.getElementById('cart-items');
+            cartContainer.innerHTML = cartItems.map((item, index) => 
+                `<li>${item} <button onclick="removeFromCart(${index})">Remove</button></li>`
+            ).join('');
+        }
+
+        function removeFromCart(index) {
+            cartItems.splice(index, 1);
+            displayCartItems();
+        }
+
+        function showCheckoutForm() {
+            document.getElementById('checkout-form').style.display = 'block';
+        }
+
+        function sendEmail() {
+            const templateParams = {
+                user_name: document.getElementById('name').value,
+                user_email: document.getElementById('email').value,
+                shipping_address: document.getElementById('shipping').value,
+                cart_items: cartItems.join(', ')
+            };
+
+            emailjs.send('service_lfu6csu', 'template_f4xegwe', templateParams)
+            .then(() => {
+                alert('Order placed successfully!');
+                resetCart();
+            }, () => {
+                alert('Failed to place order.');
+            });
+        }
+
+        function resetCart() {
+            cartItems.length = 0;
+            displayCartItems();
+            document.getElementById('checkout-form').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
